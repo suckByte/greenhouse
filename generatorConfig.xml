@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration 
+	PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+ 	"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<!-- 配置数据库连接信息 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/blueberry" userId="root" password="666666" />
+
+		<!-- 指定Bean文件的生成位置 -->
+		<javaModelGenerator targetPackage="com.greenhouse.pojo" targetProject="./src/main/java">
+			<!-- 是否允许子包 即targetPackage.schemaName.tableName -->
+			<property name="enableSubPackages" value="false" />
+			<!-- 是否对char类型对列数据进行trim操作 -->
+			<property name="trimStrings" value="true" />
+			<!-- 是否对model生成构造函数 -->
+			<property name="constructorBased" value="false" />
+			<!-- 建立对model对象是否不可改变 即生成对model对象不会有setter方法 只有构造方法 -->
+			<property name="immutable" value="false" />
+		</javaModelGenerator>
+
+		<!-- sql映射文件生成位置 -->
+		<sqlMapGenerator targetPackage="mapper" targetProject="./src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 指定dao接口生成的位置 mapper接口 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.greenhouse.dao" targetProject="./src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table tableName="tb_emp" domainObjectName="Employee" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false" />
+	</context>
+</generatorConfiguration>

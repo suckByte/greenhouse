@@ -25,12 +25,19 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-	<!-- 避免IE执行AJAX时 返回JSON出现下载文件 -->
+	<!-- 避免IE执行AJAX时 返回JSON出现下载文件 需要依赖2.9以上的Jackson jar包-->
 	<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 		<property name="supportedMediaTypes">
 			<list>
 				<value>text/html;charset=UTF-8</value>
 			</list>
 		</property>
+	</bean>
+	
+	<!-- 配置文件上传 -->
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8" />
+		<property name="maxUploadSize" value="10485760000" />
+		<property name="maxInMemorySize" value="40960" />
 	</bean>
 </beans>
