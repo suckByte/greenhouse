@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.apache.commons.io.IOCase;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.alibaba.fastjson.JSON;
 import com.greenhouse.dao.IDepartmentDao;
 import com.greenhouse.dao.IEmployeeDao;
 import com.greenhouse.pojo.Department;
@@ -26,6 +28,8 @@ public class CrudTest {
 	//2.从容器中获取mapper
 	//IDepartmentDao iDepartmentDao = applicationContext.getBean(IDepartmentDao.class);
 	
+	private static Logger logger = Logger.getLogger(CrudTest.class);
+	
 	@Autowired
 	private IDepartmentDao iDepartmentDao;
 	
@@ -37,7 +41,7 @@ public class CrudTest {
 	
 	@Test
 	public void testInsert() {
-		System.out.println(iDepartmentDao);
+//		System.out.println(iDepartmentDao);
 //		iDepartmentDao.insertSelective(new Department(null, "Sales & Marketing"));
 //		iDepartmentDao.insertSelective(new Department(null, "Finance"));
 //		
@@ -47,6 +51,8 @@ public class CrudTest {
 //			iEmployeeDao.insertSelective(new Employee(null, uuid, "F", uuid + "@greenhouse.com", 1));
 //		}
 //		System.out.println("FINISHED");
+		Employee e1 = iEmployeeDao.selectByPrimaryKey(21);
+		logger.info(JSON.toJSONString(e1));
 	}
 	
 }

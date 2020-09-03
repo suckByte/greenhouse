@@ -31,9 +31,12 @@
     from tb_emp
     where emp_id = #{empId,jdbcType=INTEGER}
   </select>
-  <!-- <select id="selectByPrimaryKeyWithDept" resultMap="">
-  
-  </select> -->
+  <select id="selectByPrimaryKeyWithDept" parameterType="java.lang.Integer" resultMap="WithDeptResultMap">
+  	select
+  	<include refid="WithDept_Column_List" />
+  	from tb_emp left join tb_dept on tb_emp.d_id=tb_dept.dept_id
+  	where emp_id = #{empId,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tb_emp
     where emp_id = #{empId,jdbcType=INTEGER}
