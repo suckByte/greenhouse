@@ -17,6 +17,14 @@ public class Employee {
 		super();
 	}
 
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 	public Employee(Integer empId, String empName, String gender, String email, Integer dId) {
 		super();
 		this.empId = empId;

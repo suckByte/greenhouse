@@ -1,5 +1,6 @@
 package com.greenhouse.mytest;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.apache.commons.io.IOCase;
@@ -42,17 +43,23 @@ public class CrudTest {
 	@Test
 	public void testInsert() {
 //		System.out.println(iDepartmentDao);
+//		插入测试数据
 //		iDepartmentDao.insertSelective(new Department(null, "Sales & Marketing"));
-//		iDepartmentDao.insertSelective(new Department(null, "Finance"));
-//		
+//		iDepartmentDao.i+nsertSelective(new Department(null, "Finance"));
+//		iEmployeeDao.insertSelective(new Employee(null, "player", "男", "jrm31415@163.com", 1));
+
+//		批量插入语句
 //		iEmployeeDao = sqlSession.getMapper(IEmployeeDao.class);
-//		for (int i = 0; i < 1000; i++) {
+//		for (int i = 0; i < 5; i++) {
 //			String uuid = UUID.randomUUID().toString().substring(0, 5) + i;
 //			iEmployeeDao.insertSelective(new Employee(null, uuid, "F", uuid + "@greenhouse.com", 1));
 //		}
 //		System.out.println("FINISHED");
-		Employee e1 = iEmployeeDao.selectByPrimaryKey(21);
-		logger.info(JSON.toJSONString(e1));
+		
+//		查询表数据
+		Employee e1 = iEmployeeDao.selectByPrimaryKeyWithDept(1);
+		List<Employee> es = iEmployeeDao.selectByExampleWithDept();
+		logger.info(JSON.toJSONString(es.get(1)));
 	}
 	
 }
