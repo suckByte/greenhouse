@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com</groupId>
@@ -111,7 +112,7 @@
 			<artifactId>mybatis-generator-core</artifactId>
 			<version>1.4.0</version>
 		</dependency>
-		
+
 		<!-- 日志文件管理包 -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -124,6 +125,13 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.1.41</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>5.1.10</version>
+		</dependency>
+
 	</dependencies>
 	<properties>
 		<spring.version>5.2.8.RELEASE</spring.version>

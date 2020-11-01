@@ -50,7 +50,7 @@ public class CrudTest {
 
 //		批量插入语句
 //		iEmployeeDao = sqlSession.getMapper(IEmployeeDao.class);
-//		for (int i = 0; i < 5; i++) {
+//		for (int i = 0; i < 50; i++) {
 //			String uuid = UUID.randomUUID().toString().substring(0, 5) + i;
 //			iEmployeeDao.insertSelective(new Employee(null, uuid, "F", uuid + "@greenhouse.com", 1));
 //		}
